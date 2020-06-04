@@ -3,14 +3,13 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
 		188208E49182D75DF34CED00 /* Pods_NewsShowcaseTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7E3A61FA7407EDCCB5837A3B /* Pods_NewsShowcaseTests.framework */; };
 		46B2389A5E4BEE6CA150D3A4 /* Pods_NewsShowcase.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 29AE22161709AACDA9912694 /* Pods_NewsShowcase.framework */; };
 		B6D9FF68248911F30050A7D9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6D9FF67248911F30050A7D9 /* AppDelegate.swift */; };
-		B6D9FF6A248911F30050A7D9 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6D9FF69248911F30050A7D9 /* SceneDelegate.swift */; };
 		B6D9FF6C248911F30050A7D9 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6D9FF6B248911F30050A7D9 /* ViewController.swift */; };
 		B6D9FF6F248911F30050A7D9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B6D9FF6D248911F30050A7D9 /* Main.storyboard */; };
 		B6D9FF71248911F40050A7D9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B6D9FF70248911F40050A7D9 /* Assets.xcassets */; };
@@ -47,7 +46,6 @@
 		8BE447FACD5C53981BF1C766 /* Pods-NewsShowcaseTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NewsShowcaseTests.release.xcconfig"; path = "Target Support Files/Pods-NewsShowcaseTests/Pods-NewsShowcaseTests.release.xcconfig"; sourceTree = "<group>"; };
 		B6D9FF64248911F30050A7D9 /* NewsShowcase.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NewsShowcase.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B6D9FF67248911F30050A7D9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		B6D9FF69248911F30050A7D9 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		B6D9FF6B248911F30050A7D9 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		B6D9FF6E248911F30050A7D9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		B6D9FF70248911F40050A7D9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -154,7 +152,6 @@
 			isa = PBXGroup;
 			children = (
 				B6D9FF67248911F30050A7D9 /* AppDelegate.swift */,
-				B6D9FF69248911F30050A7D9 /* SceneDelegate.swift */,
 				B6D9FF6B248911F30050A7D9 /* ViewController.swift */,
 			);
 			path = App;
@@ -181,7 +178,6 @@
 				63595AD401CE035B22E1C3F7 /* Pods-NewsShowcaseTests.debug.xcconfig */,
 				8BE447FACD5C53981BF1C766 /* Pods-NewsShowcaseTests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -197,6 +193,7 @@
 				B6D9FF61248911F30050A7D9 /* Frameworks */,
 				B6D9FF62248911F30050A7D9 /* Resources */,
 				D7A8CE32F2979C6381C02465 /* [CP] Embed Pods Frameworks */,
+				B6B0278924891B1B003516D1 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -400,6 +397,23 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
+		B6B0278924891B1B003516D1 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if which swiftlint >/dev/null; then\n  swiftlint\nelse\n  echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
+		};
 		D7A8CE32F2979C6381C02465 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -426,7 +440,6 @@
 			files = (
 				B6D9FF6C248911F30050A7D9 /* ViewController.swift in Sources */,
 				B6D9FF68248911F30050A7D9 /* AppDelegate.swift in Sources */,
-				B6D9FF6A248911F30050A7D9 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
