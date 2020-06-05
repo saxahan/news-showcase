@@ -12,5 +12,5 @@ struct TopHeadlinesRequestModel: PaginationRequestModel {
     var page: Int!
     var pageSize: Int!
     var q: String?
-    var sources: String?
+    var sources: String
 }

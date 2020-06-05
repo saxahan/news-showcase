@@ -13,7 +13,7 @@ import Foundation
 protocol SourcesListInteractorProtocol: BaseInteractor<NewsService> {
     var delegate: SourcesListInteractorDelegate? { get set }
 
-    func fetchSources()
+    func fetchSources(_ isRefresh: Bool)
     func didTapped(category: SourceCategoryCellItem, at indexPath: IndexPath)
     func didChangeLanguage(newLanguage: String)
 }
@@ -33,7 +33,7 @@ protocol SourcesListInteractorDelegate: AnyObject {
 // MARK: Presenter
 
 protocol SourcesListPresenterProtocol {
-    func loadSources()
+    func loadSources(isPullToRefresh: Bool)
     func didTapped(category: SourceCategoryCellItem, at indexPath: IndexPath)
     func didTapped(source: SourceCellItem, at indexPath: IndexPath)
     func didChangeLanguage(newLanguage: String)

@@ -24,13 +24,15 @@ final class SourcesListRouter: BaseRouterProtocol, SourcesListRouterProtocol {
         let router = SourcesListRouter(view: viewController)
         let interactor = SourcesListInteractor()
 
-        let presenter = SourcesListPresenter(interactor: interactor, view: viewController, router: router)
+        let presenter = SourcesListPresenter(interactor: interactor,
+                                             view: viewController,
+                                             router: router)
         viewController.presenter = presenter
         viewController.title = Consts.viewTitle
 
         let navigator = UINavigationController(rootViewController: viewController)
         navigator.navigationBar.tintColor = .systemBlue
-            
+
         if #available(iOS 11.0, *) {
             navigator.navigationBar.prefersLargeTitles = true
         } else {
@@ -45,7 +47,8 @@ final class SourcesListRouter: BaseRouterProtocol, SourcesListRouterProtocol {
         case .openTopHeadlines(let source):
             // TODO: push top headlines
 //            let topHeadlineVc
-            break
+            let topHeadlineVc = TopHeadlinesListRouter.makeWith(source: source)
+            view?.navigationController?.pushViewController(topHeadlineVc, animated: true)
         }
     }
 }

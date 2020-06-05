@@ -18,9 +18,9 @@ class SourcesListViewController: BaseViewController<SourcesListPresenter> {
 
     @IBOutlet private weak var collectionView: UICollectionView!
     @IBOutlet private weak var tableView: UITableView!
-    
+
     private var refreshControl: UIRefreshControl!
-    
+
     private var categories: [SourceCategoryCellItem] = []
     private var sources: [SourceCellItem] = []
 
@@ -33,22 +33,22 @@ class SourcesListViewController: BaseViewController<SourcesListPresenter> {
         tableView.register(SourceItemCell.self)
         tableView.dataSource = self
         tableView.delegate = self
-        
+
         refreshControl = UIRefreshControl()
         refreshControl.addTarget(self, action: #selector(refresh), for: .valueChanged)
         tableView.addSubview(refreshControl)
-        
+
         navigationController?.navigationItem.rightBarButtonItem = .createButton(title: "en",
                                                                                 target: self,
                                                                                 action: #selector(languageTapped))
 
-        presenter?.loadSources()
+        presenter?.loadSources(isPullToRefresh: false)
     }
-    
+
     @objc private func refresh(_ sender: Any) {
-        presenter?.loadSources()
+        presenter?.loadSources(isPullToRefresh: true)
     }
-    
+
     @objc private func languageTapped() {
 //        presenter?.loadSources()
     }
@@ -67,6 +67,7 @@ extension SourcesListViewController: SourcesListViewProtocol {
         case .failed(let reason):
             SVProgressHUD.dismiss()
             SVProgressHUD.show(withStatus: reason)
+            SVProgressHUD.dismiss(withDelay: 2)
         case .reloadCategories(let categories):
             self.categories = categories
             collectionView.reloadData()
@@ -166,10 +167,10 @@ extension SourcesListViewController: UITableViewDelegate, UITableViewDataSource 
 
         return cell
     }
-    
+
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
-        
+
         if let source = tableView.cell(for: indexPath, cellType: SourceItemCell.self)?.item {
             presenter?.didTapped(source: source, at: indexPath)
         }

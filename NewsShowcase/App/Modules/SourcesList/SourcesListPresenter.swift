@@ -22,8 +22,8 @@ final class SourcesListPresenter: BasePresenterProtocol, SourcesListPresenterPro
         self.interactor?.delegate = self
     }
 
-    func loadSources() {
-        interactor?.fetchSources()
+    func loadSources(isPullToRefresh: Bool) {
+        interactor?.fetchSources(isPullToRefresh)
     }
 
     func didTapped(category: SourceCategoryCellItem, at indexPath: IndexPath) {

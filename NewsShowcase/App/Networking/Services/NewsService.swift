@@ -45,7 +45,7 @@ extension NewsService: ServiceDefinable {
         case .getSources(let req):
             return requestParametersEncodableTask(req)
         case .getTopHeadlines(let req):
-            return .requestJSONEncodable(req)
+            return requestParametersEncodableTask(req)
         }
     }
 }

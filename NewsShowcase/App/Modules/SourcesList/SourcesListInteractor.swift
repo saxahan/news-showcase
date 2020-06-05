@@ -15,8 +15,11 @@ final class SourcesListInteractor: BaseInteractor<NewsService>, SourcesListInter
     private var entity: SourcesEntity = SourcesEntity(sources: [])
     private var sourcesReqModel = SourcesRequestModel()
 
-    func fetchSources() {
-        delegate?.handle(.loading)
+    func fetchSources(_ isRefresh: Bool) {
+        if !isRefresh {
+            delegate?.handle(.loading)
+        }
+
         serviceProvider?.request(.getSources(sourcesReqModel),
                                  model: [Source].self,
                                  path: "sources", { [weak self] (result) in
@@ -44,7 +47,7 @@ final class SourcesListInteractor: BaseInteractor<NewsService>, SourcesListInter
     }
 
     func didTapped(source: SourceCellItem, at indexPath: IndexPath) {
-        
+
     }
 
     func didChangeLanguage(newLanguage: String) {

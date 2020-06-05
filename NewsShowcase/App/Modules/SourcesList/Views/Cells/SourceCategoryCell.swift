@@ -8,21 +8,6 @@
 
 import UIKit
 
-struct SourceCategoryCellItem {
-    var isSelected: Bool
-    let name: String
-}
-
-extension SourceCategoryCellItem: Equatable, Hashable {
-    static func == (lhs: SourceCategoryCellItem, rhs: SourceCategoryCellItem) -> Bool {
-        return lhs.name == rhs.name
-    }
-
-    func hash(into hasher: inout Hasher) {
-        hasher.combine(name)
-    }
-}
-
 class SourceCategoryCell: UICollectionViewCell, Itemable {
     @IBOutlet private weak var viewContent: UIView!
     @IBOutlet private weak var imgViewLeftIcon: UIImageView!

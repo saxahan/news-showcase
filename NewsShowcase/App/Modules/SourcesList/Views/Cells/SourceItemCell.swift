@@ -8,21 +8,6 @@
 
 import UIKit
 
-struct SourceCellItem {
-    let id: String?
-    let name: String?
-    let category: String?
-    let description: String?
-}
-
-extension SourceCellItem: Equatable {
-    static func == (lhs: SourceCellItem, rhs: SourceCellItem) -> Bool {
-        return lhs.id == rhs.id &&
-            lhs.name == rhs.name &&
-            lhs.category == rhs.category
-    }
-}
-
 class SourceItemCell: UITableViewCell, Itemable {
     @IBOutlet private weak var labelTitle: UILabel!
     @IBOutlet private weak var labelCaption: UILabel!

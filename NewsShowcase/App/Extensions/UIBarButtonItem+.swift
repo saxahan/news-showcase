@@ -22,16 +22,16 @@ extension UIBarButtonItem {
 
         return barItem
     }
-    
+
     static func createButton(title: String,
                              target: Any?,
                              action: Selector) -> UIBarButtonItem {
-        
+
         let barItem = UIBarButtonItem(title: title,
                                       style: .plain,
                                       target: target,
                                       action: action)
-        
+
         return barItem
     }
 }
