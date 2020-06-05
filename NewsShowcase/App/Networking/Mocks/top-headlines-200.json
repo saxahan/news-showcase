@@ -1,0 +1,125 @@
+{
+    "status": "ok",
+    "totalResults": 10,
+    "articles": [{
+        "source": {
+            "id": "bbc-news",
+            "name": "BBC News"
+        },
+        "author": "BBC News",
+        "title": "Thousands defy ban to attend Tiananmen vigil in HK",
+        "description": "It comes as lawmakers approve a controversial bill criminalising insulting China's national anthem.",
+        "url": "http://www.bbc.co.uk/news/world-asia-china-52920083",
+        "urlToImage": "https://ichef.bbci.co.uk/news/1024/branded_news/40ED/production/_112712661_mediaitem112712660.jpg",
+        "publishedAt": "2020-06-04T12:54:35Z",
+        "content": "Image copyrightAFPImage caption\r\n People pushed through barricades into Victoria Park, where the vigil is held each year\r\nThousands of demonstrators in Hong Kong have defied a ban to stage a mass vig… [+4280 chars]"
+    }, {
+        "source": {
+            "id": "bbc-news",
+            "name": "BBC News"
+        },
+        "author": "BBC News",
+        "title": "Minneapolis set for George Floyd memorial",
+        "description": "The event will commemorate the man whose death in US police custody has sparked huge protests.",
+        "url": "http://www.bbc.co.uk/news/world-us-canada-52917986",
+        "urlToImage": "https://ichef.bbci.co.uk/news/1024/branded_news/6A2C/production/_112708172_mediaitem112708171.jpg",
+        "publishedAt": "2020-06-04T12:24:39Z",
+        "content": "Image copyrightReutersImage caption\r\n Protests have taken place around the US for several days\r\nHundreds of people are expected to attend a memorial in Minneapolis for African American George Floyd, … [+8039 chars]"
+    }, {
+        "source": {
+            "id": "bbc-news",
+            "name": "BBC News"
+        },
+        "author": "BBC Sport",
+        "title": "Brees hurtful and insensitive - Jenkins",
+        "description": "Malcolm Jenkins says New Orleans Saints team-mate Drew Brees is \"part of the problem\" for his \"hurtful\" opposition to NFL kneeling protests.",
+        "url": "http://www.bbc.co.uk/sport/american-football/52918816",
+        "urlToImage": "https://ichef.bbci.co.uk/live-experience/cps/624/cpsprodpb/C2F7/production/_112711994_gettyimages-1014301318.jpg",
+        "publishedAt": "2020-06-04T12:07:26.8736226Z",
+        "content": "Brees has thrown 547 touchdown passes - more than any quarterback in NFL history\r\nNew Orleans Saints safety Malcolm Jenkins says team-mate Drew Brees is \"part of the problem\" for his \"hurtful\" opposi… [+2529 chars]"
+    }, {
+        "source": {
+            "id": "bbc-news",
+            "name": "BBC News"
+        },
+        "author": "BBC News",
+        "title": "'Get off my grass': Man interrupts Australian PM",
+        "description": "The resident stopped Scott Morrison's press briefing, complaining his lawn had \"just been reseeded\".",
+        "url": "http://www.bbc.co.uk/news/world-australia-52915880",
+        "urlToImage": "https://ichef.bbci.co.uk/news/1024/branded_news/27BA/production/_112707101_p08g0nrc.jpg",
+        "publishedAt": "2020-06-04T07:25:11Z",
+        "content": null
+    }, {
+        "source": {
+            "id": "bbc-news",
+            "name": "BBC News"
+        },
+        "author": "BBC News",
+        "title": "Trump 'tries to divide us', says ex-defence chief",
+        "description": "Donald Trump's ex-defence secretary, James Mattis, attacks the president's handling of recent protests.",
+        "url": "http://www.bbc.co.uk/news/world-us-canada-52915816",
+        "urlToImage": "https://ichef.bbci.co.uk/news/1024/branded_news/17B1A/production/_112705079_hi051078205.jpg",
+        "publishedAt": "2020-06-04T07:08:25Z",
+        "content": "Image copyrightReutersImage caption\r\n James Mattis was President Donald Trump's first defence secretary - but resigned in 2018\r\nEx-US Defence Secretary James Mattis has denounced President Donald Tru… [+9411 chars]"
+    }, {
+        "source": {
+            "id": "bbc-news",
+            "name": "BBC News"
+        },
+        "author": "BBC News",
+        "title": "Police plea for help as Madeleine suspect revealed",
+        "description": "\"Someone out there knows a lot more than they're letting on,\" says the officer leading the UK inquiry.",
+        "url": "http://www.bbc.co.uk/news/uk-52916137",
+        "urlToImage": "https://ichef.bbci.co.uk/news/1024/branded_news/A5BF/production/_97713424_mediaitem97713423.jpg",
+        "publishedAt": "2020-06-04T02:49:19Z",
+        "content": "Image copyrightPAImage caption\r\n Madeleine McCann was three years old when she went missing in 2007\r\nPolice are appealing for the public's help in solving the Madeleine McCann case, after they announ… [+8271 chars]"
+    }, {
+        "source": {
+            "id": "bbc-news",
+            "name": "BBC News"
+        },
+        "author": "BBC News",
+        "title": "Coronavirus updates: Iran fears 'second wave' as cases climb",
+        "description": "Daily infections - which have been rising since early May - pass 3,000 for second day in a row.",
+        "url": "http://www.bbc.co.uk/news/live/world-52916179",
+        "urlToImage": "https://m.files.bbci.co.uk/modules/bbc-morph-news-waf-page-meta/4.1.2/bbc_news_logo.png",
+        "publishedAt": "2020-06-04T02:37:22.9142226Z",
+        "content": "It was confirmed yesterday that Australia's much-envied streak of 29 years without a recession was coming to an end.\r\nSpeaking today, Prime Minister Scott Morrison described it\r\nas \"heartbreaking\" an… [+1040 chars]"
+    }, {
+        "source": {
+            "id": "bbc-news",
+            "name": "BBC News"
+        },
+        "author": "BBC News",
+        "title": "The man behind the protest plea that moved America",
+        "description": "In a viral speech, Curtis Hayes implored two generations of protesters to \"find a better way\".",
+        "url": "http://www.bbc.co.uk/news/world-us-canada-52915973",
+        "urlToImage": "https://ichef.bbci.co.uk/news/1024/branded_news/574E/production/_112705322_p08g05hm.jpg",
+        "publishedAt": "2020-06-04T00:44:02Z",
+        "content": null
+    }, {
+        "source": {
+            "id": "bbc-news",
+            "name": "BBC News"
+        },
+        "author": "BBC News",
+        "title": "Vast Arctic oil spill prompts state of emergency",
+        "description": "Russia's President Putin declares a state of emergency after 20,000 tonnes of oil leak into a river.",
+        "url": "http://www.bbc.co.uk/news/world-europe-52915807",
+        "urlToImage": "https://ichef.bbci.co.uk/news/1024/branded_news/429A/production/_112705071_hi061775136.jpg",
+        "publishedAt": "2020-06-04T00:05:18Z",
+        "content": "Image copyrightAFPImage caption\r\n The leaked diesel oil drifted some 12km (7.5 miles) from the site of the accident\r\nRussia's President Vladimir Putin has declared a state of emergency after 20,000 t… [+2352 chars]"
+    }, {
+        "source": {
+            "id": "bbc-news",
+            "name": "BBC News"
+        },
+        "author": "BBC News",
+        "title": "White House likens Trump to Churchill in WW2",
+        "description": "The White House compares President Donald Trump to Winston Churchill during World War Two.",
+        "url": "http://www.bbc.co.uk/news/world-us-canada-52915972",
+        "urlToImage": "https://ichef.bbci.co.uk/news/1024/branded_news/1BEE/production/_112705170_p08g03wb.jpg",
+        "publishedAt": "2020-06-03T23:26:49Z",
+        "content": "VideoThe White House press secretary has likened President Donald Trump's \"resilience and determination\" during the #GeorgeFloyd protests to Winston Churchill inspecting bomb damage during World War … [+3 chars]"
+    }]
+}

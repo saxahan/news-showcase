@@ -1,5 +1,5 @@
 //
-//  SourceRequestModel.swift
+//  SourcesRequestModel.swift
 //  NewsShowcase
 //
 //  Created by Yunus Alkan on 4.06.2020.
@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct SourceRequestModel: Encodable {
+struct SourcesRequestModel: Encodable {
     let language: String
     let category: String?
     let country: String?

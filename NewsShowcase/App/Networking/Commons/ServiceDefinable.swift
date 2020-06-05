@@ -15,7 +15,7 @@ typealias JSONEncoding = Moya.JSONEncoding
 typealias URLEncoding = Moya.URLEncoding
 
 protocol ServiceDefinable: TargetType {
-
+    var sampleErrorData: (statusCode: Int, response: Data) { get }
 }
 
 extension ServiceDefinable {
@@ -25,6 +25,10 @@ extension ServiceDefinable {
 
     var sampleData: Data {
         return Data()
+    }
+    
+    var sampleErrorData: (statusCode: Int, response: Data) {
+        return (400, Data())
     }
 
     var headers: [String: String]? {

@@ -7,28 +7,68 @@
 //
 
 import XCTest
+@testable import NewsShowcase
 
 class NewsServiceTests: XCTestCase {
 
-    override func setUpWithError() throws {
-        // Put setup code here. This method is called before the invocation of each test method in the class.
+    func testResponseMapping() throws {
+        let newsServiceProvider = ServiceFactory.getServiceProvider(for: NewsService.self, mock: true)
+        
+        // sources
+        let sourcesRequest = SourcesRequestModel()
 
-        // In UI tests it is usually best to stop immediately when a failure occurs.
-        continueAfterFailure = false
+        newsServiceProvider.request(.getSources(sourcesRequest),
+                                    model: SourcesResponseModel.self) { (result) in
+            switch result {
+            case .success(let sourcesResponse):
+                XCTAssertEqual(sourcesResponse.status, "ok")
+                XCTAssertGreaterThan(sourcesResponse.sources.count, 0)
+            case .failure(let error):
+                XCTFail(error.message ?? "failed")
+            }
+        }
 
-        // UI tests must launch the application that they test. Doing this in setup will make sure it happens for each test method.
-        XCUIApplication().launch()
+        // mapping error case
+        newsServiceProvider.request(.getSources(sourcesRequest),
+                                    model: TopHeadlinesResponseModel.self) { (result) in
+            switch result {
+            case .success(_):
+                XCTFail("Mapping should have been failed")
+            case .failure(let error):
+                XCTAssertEqual(error.status, "error")
+            }
+        }
 
-        // In UI tests it’s important to set the initial state - such as interface orientation - required for your tests before they run. The setUp method is a good place to do this.
+        // topHeadline
+        let topHeadlinesRequest = TopHeadlinesRequestModel()
+
+        newsServiceProvider.request(.getTopHeadlines(topHeadlinesRequest),
+                                    model: TopHeadlinesResponseModel.self) { (result) in
+            switch result {
+            case .success(let topHeadlinesResponse):
+                XCTAssertEqual(topHeadlinesResponse.status, "ok")
+                XCTAssertGreaterThan(topHeadlinesResponse.totalResults, 0)
+            case .failure(let error):
+                XCTFail(error.message ?? "failed")
+            }
+        }
     }
+    
+    func testErrorResponse() throws {
+        let newsServiceProvider = ServiceFactory.getServiceProvider(for: NewsService.self, mock: true, forceFail: true)
+        
+        // mapping error response as unauthorized(401)
+        let sourcesRequest = SourcesRequestModel()
 
-    override func tearDownWithError() throws {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
-    }
-
-    func testExample() throws {
-        // Use recording to get started writing UI tests.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
+        newsServiceProvider.request(.getSources(sourcesRequest),
+                                    model: SourcesResponseModel.self) { (result) in
+            switch result {
+            case .success:
+               XCTFail("Mapping should have been failed")
+            case .failure(let error):
+                XCTAssertEqual(error.status, "error")
+            }
+        }
     }
 
 }

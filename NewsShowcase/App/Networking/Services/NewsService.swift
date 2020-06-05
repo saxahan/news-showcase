@@ -9,8 +9,8 @@
 import Foundation
 
 enum NewsService {
-    case getSources(SourceRequestModel)
-    case getTopHeadlines(TopHeadlineRequestModel)
+    case getSources(SourcesRequestModel)
+    case getTopHeadlines(TopHeadlinesRequestModel)
 }
 
 extension NewsService: ServiceDefinable {
@@ -34,6 +34,10 @@ extension NewsService: ServiceDefinable {
         case .getTopHeadlines:
             return Bundle.main.data(for: "top-headlines-200.json") ?? Data()
         }
+    }
+    
+    var sampleErrorData: (statusCode: Int, response: Data) {
+        return (401, Bundle.main.data(for: "api-401.json") ?? Data())
     }
 
     var task: Task {

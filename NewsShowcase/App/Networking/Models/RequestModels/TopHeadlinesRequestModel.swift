@@ -1,5 +1,5 @@
 //
-//  TopHeadlineRequestModel.swift
+//  TopHeadlinesRequestModel.swift
 //  NewsShowcase
 //
 //  Created by Yunus Alkan on 4.06.2020.
@@ -7,8 +7,6 @@
 //
 
 import Foundation
-
-// swiftlint:disable identifier_name
 
 struct TopHeadlinesRequestModel: PaginationRequestModel {
     var page: Int!
