@@ -33,17 +33,21 @@ final class TopHeadlinesListPresenter: BasePresenterProtocol, TopHeadlinesListPr
     func stopSlider() {
         interactor?.stopSlider()
     }
-    
+
     func stopAutoRefresher() {
         interactor?.stopAutoRefresher()
+    }
+
+    func bookmarkTapped(item: ArticleCellItem) {
+        interactor?.bookmarkTapped(item: item)
     }
 }
 
 extension TopHeadlinesListPresenter: TopHeadlinesListInteractorDelegate {
     func handle(_ output: TopHeadlinesListInteractorOutput) {
         switch output {
-        case .failed(let reason):
-            view?.handle(.failed(reason))
+        case .failed(let reason, let status):
+            view?.handle(.failed(reason, status: status))
         case .loading:
             view?.handle(.loading)
         case .finishLoading:

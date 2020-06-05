@@ -13,7 +13,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
 
-    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+    func application(_ application: UIApplication,
+                     didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         configureApp(application, launchOptions: launchOptions)
 
         if window == nil {
@@ -26,7 +27,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
         return true
     }
-
+    
+    func applicationWillTerminate(_ application: UIApplication) {
+        BookmarkManager.persist()
+    }
 }
 
 // MARK: - Initializers

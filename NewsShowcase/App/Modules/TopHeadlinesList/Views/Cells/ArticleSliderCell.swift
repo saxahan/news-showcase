@@ -20,6 +20,7 @@ class ArticleSliderCell: UICollectionViewCell, Itemable {
 
     var item: [ArticleCellItem]? {
         didSet {
+            pageControl.numberOfPages = item?.count ?? 0
             collectionView.reloadData()
         }
     }
@@ -57,6 +58,7 @@ extension ArticleSliderCell: UICollectionViewDelegate, UICollectionViewDataSourc
         let cell = collectionView.dequeueReusableCell(for: indexPath, cellType: ArticleCell.self)
         let sliderItem = item?[safe: indexPath.row]
         cell.item = sliderItem
+        cell.delegate = self
 
         return cell
     }
@@ -76,5 +78,23 @@ extension ArticleSliderCell: UICollectionViewDelegateFlowLayout {
                         sizeForItemAt indexPath: IndexPath) -> CGSize {
         return CGSize(width: self.frame.width,
                               height: collectionView.frame.height)
+    }
+}
+
+// MARK: - ArticleCellDelegate
+
+extension ArticleSliderCell: ArticleCellDelegate {
+    func bookmarkTapped(item: ArticleCellItem) {
+        if let id = item.title, let desc = item.description {
+            let bookmark = BookmarkItem(id: id, description: desc)
+
+            if !item.isBookmarked {
+                BookmarkManager.add(item: bookmark)
+            } else {
+                BookmarkManager.remove(item: bookmark)
+            }
+            
+            collectionView.reloadData()
+        }
     }
 }

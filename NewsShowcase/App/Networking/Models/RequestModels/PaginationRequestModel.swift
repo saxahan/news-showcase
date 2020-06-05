@@ -12,13 +12,3 @@ protocol PaginationRequestModel: Encodable {
     var page: Int! { get set }
     var pageSize: Int! { get set }
 }
-
-extension PaginationRequestModel {
-    var page: Int! {
-        return 1
-    }
-
-    var pageSize: Int! {
-        return 20
-    }
-}

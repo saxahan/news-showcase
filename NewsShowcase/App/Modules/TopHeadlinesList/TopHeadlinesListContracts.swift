@@ -17,6 +17,7 @@ protocol TopHeadlinesListInteractorProtocol: BaseInteractor<NewsService> {
     func startSlideTimer()
     func stopSlider()
     func stopAutoRefresher()
+    func bookmarkTapped(item: ArticleCellItem)
 }
 
 enum TopHeadlinesListInteractorOutput: Equatable {
@@ -24,7 +25,7 @@ enum TopHeadlinesListInteractorOutput: Equatable {
     case finishLoading
     case reloadSlider(_ items: [ArticleCellItem])
     case reloadData(_ items: [ArticleCellItem])
-    case failed(_ reason: String)
+    case failed(_ reason: String, status: ResultStatus)
     case slide(section: Int, item: Int)
 }
 
@@ -39,12 +40,13 @@ protocol TopHeadlinesListPresenterProtocol {
     func startSlideTimer()
     func stopSlider()
     func stopAutoRefresher()
+    func bookmarkTapped(item: ArticleCellItem)
 }
 
 enum TopHeadlinesListPresenterOutput {
     case loading
     case hideLoading
-    case failed(_ reason: String)
+    case failed(_ reason: String, status: ResultStatus)
     case reloadSlider(_ items: [ArticleCellItem])
     case reloadData(_ items: [ArticleCellItem])
     case slide(section: Int, item: Int)

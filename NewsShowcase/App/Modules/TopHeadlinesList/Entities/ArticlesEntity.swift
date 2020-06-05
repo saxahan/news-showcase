@@ -21,6 +21,6 @@ struct ArticlesEntity {
                                                        description: $0.description,
                                                        content: $0.content,
                                                        imageUrl: $0.urlToImage,
-                                                       publishedAt: $0.publishedAt, isBookmarked: true) }
+                                                       publishedAt: $0.publishedAt) }
     }
 }

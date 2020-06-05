@@ -40,7 +40,7 @@ class NewsServiceTests: XCTestCase {
         }
 
         // topHeadline
-        let topHeadlinesRequest = TopHeadlinesRequestModel()
+        let topHeadlinesRequest = TopHeadlinesRequestModel(sources: "")
 
         newsServiceProvider.request(.getTopHeadlines(topHeadlinesRequest),
                                     model: TopHeadlinesResponseModel.self) { (result) in

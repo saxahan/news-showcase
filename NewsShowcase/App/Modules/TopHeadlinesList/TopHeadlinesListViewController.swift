@@ -18,7 +18,7 @@ class TopHeadlinesListViewController: BaseViewController<TopHeadlinesListPresent
     @IBOutlet private weak var collectionView: UICollectionView!
 
     private var refreshControl: UIRefreshControl!
-
+    private var resultStatusView: ResultStatusView = ResultStatusView()
     private var sliderItems: [ArticleCellItem] = []
     private var items: [ArticleCellItem] = []
 
@@ -32,13 +32,16 @@ class TopHeadlinesListViewController: BaseViewController<TopHeadlinesListPresent
         refreshControl.addTarget(self, action: #selector(refresh), for: .valueChanged)
         collectionView.addSubview(refreshControl)
 
+        resultStatusView.frame = collectionView.frame
+        collectionView.backgroundView = resultStatusView
+
         presenter?.loadSources(isPullToRefresh: false)
     }
 
     @objc private func refresh(_ sender: Any) {
         presenter?.loadSources(isPullToRefresh: true)
     }
-    
+
     deinit {
         presenter?.stopSlider()
         presenter?.stopAutoRefresher()
@@ -55,10 +58,9 @@ extension TopHeadlinesListViewController: TopHeadlinesListViewProtocol {
         case .hideLoading:
             SVProgressHUD.dismiss()
             refreshControl?.endRefreshing()
-        case .failed(let reason):
+        case .failed(let reason, let status):
             SVProgressHUD.dismiss()
-            SVProgressHUD.show(withStatus: reason)
-            SVProgressHUD.dismiss(withDelay: 2)
+            resultStatusView.item = (status, reason)
         case .reloadSlider(let items):
             sliderItems = items
             collectionView.reloadData()
@@ -82,7 +84,7 @@ extension TopHeadlinesListViewController: UICollectionViewDelegate, UICollection
 
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         if section == 0 {
-            return 1
+            return !sliderItems.isEmpty ? 1 : 0
         }
 
         return items.count
@@ -93,12 +95,11 @@ extension TopHeadlinesListViewController: UICollectionViewDelegate, UICollection
         if indexPath.section == 0 {
             let cell = collectionView.dequeueReusableCell(for: indexPath, cellType: ArticleSliderCell.self)
             cell.item = sliderItems
-
             return cell
         } else {
             let cell = collectionView.dequeueReusableCell(for: indexPath, cellType: ArticleCell.self)
             cell.item = items[safe: indexPath.row]
-
+            cell.delegate = self
             return cell
         }
     }
@@ -113,5 +114,14 @@ extension TopHeadlinesListViewController: UICollectionViewDelegateFlowLayout {
         return CGSize(width: collectionView.frame.width,
                       height: Consts.cellHeight +
             CGFloat(indexPath.section == 0 ? 20 : 0))
+    }
+}
+
+// MARK: - ArticleCellDelegate
+
+extension TopHeadlinesListViewController: ArticleCellDelegate {
+    func bookmarkTapped(item: ArticleCellItem) {
+        presenter?.bookmarkTapped(item: item)
+        collectionView.reloadData()
     }
 }

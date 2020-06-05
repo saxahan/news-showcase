@@ -15,7 +15,14 @@ struct ArticleCellItem {
     let content: String?
     let imageUrl: URL?
     let publishedAt: Date?
-    let isBookmarked: Bool
+
+    var isBookmarked: Bool {
+        guard let title = title else {
+            return false
+        }
+
+        return BookmarkManager.has(forId: title)
+    }
 }
 
 extension ArticleCellItem: Equatable {

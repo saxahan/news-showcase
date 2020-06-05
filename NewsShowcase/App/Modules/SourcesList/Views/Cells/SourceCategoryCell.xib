@@ -20,8 +20,8 @@
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VkA-qd-3pC">
                         <rect key="frame" x="4" y="0.0" width="122" height="48"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="checkmark.circle" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="CuK-3t-6FL">
-                                <rect key="frame" x="8" y="14.5" width="20" height="19"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="checkmark" translatesAutoresizingMaskIntoConstraints="NO" id="CuK-3t-6FL">
+                                <rect key="frame" x="8" y="14" width="20" height="20"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="20" id="FBJ-Qq-iOh"/>
                                     <constraint firstAttribute="width" constant="20" id="sdq-qa-p1F"/>
@@ -63,6 +63,6 @@
         </collectionViewCell>
     </objects>
     <resources>
-        <image name="checkmark.circle" catalog="system" width="128" height="121"/>
+        <image name="checkmark" width="16" height="16"/>
     </resources>
 </document>

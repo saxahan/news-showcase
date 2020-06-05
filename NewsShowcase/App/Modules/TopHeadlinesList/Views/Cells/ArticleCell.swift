@@ -9,6 +9,10 @@
 import UIKit
 import SDWebImage
 
+private enum Consts {
+    static let bookmarkImage = UIImage(named: "bookmark")?
+        .withRenderingMode(.alwaysTemplate)
+}
 protocol ArticleCellDelegate: AnyObject {
     func bookmarkTapped(item: ArticleCellItem)
 }
@@ -32,8 +36,16 @@ class ArticleCell: UICollectionViewCell, Itemable {
         }
     }
 
+    override func awakeFromNib() {
+        super.awakeFromNib()
+
+        buttonBookmark.setImage(Consts.bookmarkImage, for: .normal)
+        buttonBookmark.setImage(Consts.bookmarkImage, for: .selected)
+    }
+
     @IBAction private func tappedBookmark(_ sender: Any) {
-        if let item = item {
+        if let item = item, let button = sender as? UIButton {
+            button.isSelected.toggle()
             delegate?.bookmarkTapped(item: item)
         }
     }

@@ -28,6 +28,7 @@ class SourceCategoryCell: UICollectionViewCell, Itemable {
     override func awakeFromNib() {
         super.awakeFromNib()
 
+        imgViewLeftIcon.image = imgViewLeftIcon.image?.withRenderingMode(.alwaysTemplate)
         viewContent.layer.cornerRadius = 8
         viewContent.layer.borderWidth = 1
         viewContent.layer.borderColor = UIColor.black.cgColor
