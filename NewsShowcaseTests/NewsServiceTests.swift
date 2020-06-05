@@ -13,7 +13,7 @@ class NewsServiceTests: XCTestCase {
 
     func testResponseMapping() throws {
         let newsServiceProvider = ServiceFactory.getServiceProvider(for: NewsService.self, mock: true)
-        
+
         // sources
         let sourcesRequest = SourcesRequestModel()
 
@@ -32,7 +32,7 @@ class NewsServiceTests: XCTestCase {
         newsServiceProvider.request(.getSources(sourcesRequest),
                                     model: TopHeadlinesResponseModel.self) { (result) in
             switch result {
-            case .success(_):
+            case .success:
                 XCTFail("Mapping should have been failed")
             case .failure(let error):
                 XCTAssertEqual(error.status, "error")
@@ -53,10 +53,10 @@ class NewsServiceTests: XCTestCase {
             }
         }
     }
-    
+
     func testErrorResponse() throws {
         let newsServiceProvider = ServiceFactory.getServiceProvider(for: NewsService.self, mock: true, forceFail: true)
-        
+
         // mapping error response as unauthorized(401)
         let sourcesRequest = SourcesRequestModel()
 

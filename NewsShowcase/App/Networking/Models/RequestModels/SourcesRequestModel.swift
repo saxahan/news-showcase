@@ -9,9 +9,9 @@
 import Foundation
 
 struct SourcesRequestModel: Encodable {
-    let language: String
-    let category: String?
-    let country: String?
+    var language: String
+    var category: String?
+    var country: String?
 
     init(language: String = "en", category: String? = nil, country: String? = nil) {
         self.language = language

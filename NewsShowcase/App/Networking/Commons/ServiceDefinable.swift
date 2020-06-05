@@ -8,6 +8,7 @@
 
 import Moya
 
+typealias ServiceProvider = MoyaProvider
 typealias Method = Moya.Method
 typealias Task = Moya.Task
 typealias ParameterEncoding = Moya.ParameterEncoding
@@ -26,7 +27,7 @@ extension ServiceDefinable {
     var sampleData: Data {
         return Data()
     }
-    
+
     var sampleErrorData: (statusCode: Int, response: Data) {
         return (400, Data())
     }

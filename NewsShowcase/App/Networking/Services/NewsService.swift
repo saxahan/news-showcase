@@ -35,7 +35,7 @@ extension NewsService: ServiceDefinable {
             return Bundle.main.data(for: "top-headlines-200.json") ?? Data()
         }
     }
-    
+
     var sampleErrorData: (statusCode: Int, response: Data) {
         return (401, Bundle.main.data(for: "api-401.json") ?? Data())
     }

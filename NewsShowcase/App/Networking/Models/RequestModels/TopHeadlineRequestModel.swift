@@ -8,8 +8,6 @@
 
 import Foundation
 
-// swiftlint:disable identifier_name
-
 struct TopHeadlinesRequestModel: PaginationRequestModel {
     var page: Int!
     var pageSize: Int!
