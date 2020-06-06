@@ -9,7 +9,7 @@
 * Network unit testing
 * Swiftlint for code quality
 
-## Run this before opening project
+## Run following command where Podfile in, before opening project
 ```shell
 pod install
 ```
