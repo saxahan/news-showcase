@@ -6,6 +6,7 @@
 ## Design Patterns & Technologies
 * VIPER modules
 * Moya network abstraction
+* Factory for service providers
 * Network unit testing
 * Swiftlint for code quality
 
