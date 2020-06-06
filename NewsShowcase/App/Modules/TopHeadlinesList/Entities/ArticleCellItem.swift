@@ -13,7 +13,7 @@ struct ArticleCellItem {
     let title: String?
     let description: String?
     let content: String?
-    let imageUrl: URL?
+    let imageUrl: String?
     let publishedAt: Date?
 
     var isBookmarked: Bool {

@@ -13,6 +13,7 @@ private enum Consts {
     static let bookmarkImage = UIImage(named: "bookmark")?
         .withRenderingMode(.alwaysTemplate)
 }
+
 protocol ArticleCellDelegate: AnyObject {
     func bookmarkTapped(item: ArticleCellItem)
 }
@@ -28,7 +29,10 @@ class ArticleCell: UICollectionViewCell, Itemable {
     var item: ArticleCellItem? {
         didSet {
             if let item = item {
-                imgView.sd_setImage(with: item.imageUrl)
+                if let imageUrlStr = item.imageUrl, let imageUrl = URL(string: imageUrlStr) {
+                    imgView.sd_setImage(with: imageUrl)
+                }
+
                 labelContent.text = item.description
                 buttonBookmark.tintColor = item.isBookmarked ? .systemBlue : .white
                 labelDate.text = item.publishedAt?.toString()

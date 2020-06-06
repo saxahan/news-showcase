@@ -93,7 +93,7 @@ extension ArticleSliderCell: ArticleCellDelegate {
             } else {
                 BookmarkManager.remove(item: bookmark)
             }
-            
+
             collectionView.reloadData()
         }
     }

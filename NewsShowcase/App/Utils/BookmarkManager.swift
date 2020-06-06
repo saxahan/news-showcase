@@ -27,7 +27,7 @@ extension BookmarkItem: Equatable, Hashable {
 struct BookmarkManager {
     @UserProperties(key: "bookmarks", defaultValue: [])
     private static var persistedItems: Set<BookmarkItem>
-    
+
     static var items: Set<BookmarkItem> = persistedItems
 
     static func add(item: BookmarkItem) {
