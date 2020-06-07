@@ -45,8 +45,6 @@ final class SourcesListRouter: BaseRouterProtocol, SourcesListRouterProtocol {
     func navigate(to route: SourcesListRoute) {
         switch route {
         case .openTopHeadlines(let source):
-            // TODO: push top headlines
-//            let topHeadlineVc
             let topHeadlineVc = TopHeadlinesListRouter.makeWith(source: source)
             view?.navigationController?.pushViewController(topHeadlineVc, animated: true)
         }
