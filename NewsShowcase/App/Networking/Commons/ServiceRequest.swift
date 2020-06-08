@@ -60,18 +60,29 @@ extension Response {
             let dateStr = try container.decode(String.self)
 
             let formatter = DateFormatter()
+
+            formatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss"
+            if let date = formatter.date(from: dateStr) {
+                return date
+            }
+
             formatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss'Z'"
-
-            if dateStr.count > 20 {
-                formatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'"
+            if let date = formatter.date(from: dateStr) {
+                return date
             }
 
-            guard let date = formatter.date(from: dateStr) else {
-                throw DecodingError.dataCorruptedError(in: container,
-                                                       debugDescription: "Cannot decode date string \(dateStr)")
+            formatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'"
+            if let date = formatter.date(from: dateStr) {
+                return date
             }
 
-            return date
+            formatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss+SS:SS"
+            if let date = formatter.date(from: dateStr) {
+                return date
+            }
+
+            throw DecodingError.dataCorruptedError(in: container,
+                                                   debugDescription: "Cannot decode date string \(dateStr)")
         })
 
         return decoder
